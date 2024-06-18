@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const morgan = require('morgan');
 
 const app = express();
 
@@ -9,6 +10,8 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(morgan('dev'));
+
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());

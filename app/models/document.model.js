@@ -1,5 +1,3 @@
-const { sequelize, Sequelize } = require(".");
-
 module.exports = (sequelize, Sequelize) => {
   const Document = sequelize.define("document", {
     title: {
@@ -15,13 +13,6 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
   });
-
-  Document.associate = (models) => {
-    Document.hasOne(models.User, {
-      foreignKey: 'users.id',
-      as: "user_id"
-    })
-  }
 
   return Document;
 }

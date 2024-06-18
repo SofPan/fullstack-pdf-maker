@@ -1,5 +1,3 @@
-const { sequelize, Sequelize } = require(".");
-
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define("user", {
     email: {
@@ -9,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     name: {
-      type: sequelize.STRING
+      type: Sequelize.STRING
     }
   });
 
