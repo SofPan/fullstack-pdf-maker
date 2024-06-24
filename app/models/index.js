@@ -19,7 +19,7 @@ db.sequelize = sequelize;
 db.users = require('./user.model.js')(sequelize, Sequelize);
 db.documents = require('./document.model.js')(sequelize, Sequelize);
 db.sections = require('./section.model.js')(sequelize, Sequelize);
-
+db.entries = require('./entry.model.js')(sequelize, Sequelize);
 
 db.users.hasMany(db.documents, { as: "documents" });
 db.documents.belongsTo(db.users, {
@@ -31,6 +31,12 @@ db.documents.hasMany(db.sections, { as: "sections" });
 db.sections.belongsTo(db.documents, {
   foreignKey: "documentId",
   as: "document"
+});
+
+db.sections.hasMany(db.entries, { as: "entries" });
+db.entries.belongsTo(db.sections, {
+  foreignKey: "sectionId",
+  as: "section"
 });
 
 module.exports = db;
