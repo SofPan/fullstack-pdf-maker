@@ -1,7 +1,8 @@
 import http from "../http-common";
 
-class UserDataService {
+export default class UserDataService {
   get(id) {
+    console.log("the user id is", id);
     return http.get(`/users/${id}`);
   }
 
@@ -9,13 +10,7 @@ class UserDataService {
     return http.post("/users", data);
   }
 
-  update(id, data) {
-    return http.put(`users/${id}`, data);
-  }
-
   delete(id) {
     return http.delete(`/users/${id}`);
   }
 }
-
-export default new UserDataService();
