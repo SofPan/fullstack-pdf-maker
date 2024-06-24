@@ -4,8 +4,14 @@ const Op = db.Sequelize.Op;
 
 // Create a new document
 
-exports.create = (req, res) => {
-  console.log("create a new document");
+exports.createDocument = (document) => {
+  return Document.create({
+    title: document.title,
+    description: document.description,
+    hero_image: document.hero_image,
+    background_color: document.background_color,
+    user_id: document.user_id
+  });
 };
 
 // Find all documents

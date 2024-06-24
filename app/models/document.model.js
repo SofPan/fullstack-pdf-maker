@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     description: {
-      type: Sequelize.STRING
+      type: Sequelize.TEXT
     },
     hero_image: {
       type: Sequelize.STRING
@@ -12,6 +12,9 @@ module.exports = (sequelize, Sequelize) => {
     background_color: {
       type: Sequelize.STRING
     },
+    user_id: {
+      type: Sequelize.INTEGER
+    }
   });
 
   return Document;

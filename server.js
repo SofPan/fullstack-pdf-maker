@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 const userController = require('./app/controllers/user.controller');
+const documentController = require('./app/controllers/document.controller')
 
 const run = async () => {
   const user1 = await userController.createUser({
@@ -31,10 +32,12 @@ const run = async () => {
     name: "user1"
   });
 
-  const user2 = await userController.createUser({
-    email: "email2@email.com",
-    password: "12345",
-    name: "user2"
+  const document1 = await documentController.createDocument({
+    title: "Sample Document",
+    description: "At Purfleet, on a by-road, I came across just such a place as seemed to be required, and where was displayed a dilapidated notice that the place was for sale. It is surrounded by a high wall, of ancient structure, built of heavy stones, and has not been repaired for a large number of years. The closed gates are of heavy old oak and iron, all eaten with rust.",
+    hero_image: "https://picsum.photos/2400/1200",
+    background_color: "#ccc",
+    user_id: 1
   });
 
 };
