@@ -10,8 +10,14 @@ exports.createDocument = (document) => {
     description: document.description,
     hero_image: document.hero_image,
     background_color: document.background_color,
-    user_id: document.user_id
-  });
+    userId: document.userId
+  })
+    .then(document => {
+      console.log(">> Created document: " + JSON.stringify(document, null, 4));
+      return document;
+    })
+    .catch(err => console.log(">> Error while creating document: ", err));
+
 };
 
 // Find all documents
