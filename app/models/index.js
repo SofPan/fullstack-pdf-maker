@@ -1,10 +1,15 @@
 const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: "postgres",
-});
+const sequelize = new Sequelize(
+  dbConfig.DB,
+  dbConfig.USER,
+  dbConfig.PASSWORD,
+  {
+    host: dbConfig.HOST,
+    dialect: "postgres",
+  }
+);
 
 const db = {};
 
@@ -16,7 +21,7 @@ db.documents = require('./document.model.js')(sequelize, Sequelize);
 
 db.users.hasMany(db.documents, { as: "documents" });
 db.documents.belongsTo(db.users, {
-  foreignKen: "userId",
+  foreignKey: "userId",
   as: "user"
 });
 
