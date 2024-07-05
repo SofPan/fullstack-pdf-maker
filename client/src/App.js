@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <span>User Info</span>
+        <p className='text-red-400'>User Info</p>
         {data.map(user => <p key={user.id}>{user.email}</p>)}
       </div>
     </div>
