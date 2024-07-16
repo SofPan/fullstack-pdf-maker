@@ -2,8 +2,19 @@ import './App.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav/Nav';
+import useUserData from './context/useUserData';
 
 function App() {
+
+  const {
+    userState,
+    userDispatch
+  } = useUserData();
+
+  useEffect(() => {
+    console.log("app side user state", userState)
+  }, [userState]);
+
   // const [data, setData] = useState([]);
 
   // useEffect(() => {

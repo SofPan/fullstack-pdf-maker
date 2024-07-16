@@ -23,7 +23,7 @@ export default function useUserData() {
     userInfo: {},
   }
 
-  const [userState, dispatch] = useReducer(reducer, initialState);
+  const [userState, userDispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     // temporary default user
@@ -31,14 +31,16 @@ export default function useUserData() {
       .then(res => res.data)
       .then(data => {
         if (data) {
-          dispatch({ type: "login", payload: true });
-          dispatch({ type: "user_info", payload: data });
+          userDispatch({ type: "login", payload: true });
+          userDispatch({ type: "user_info", payload: data });
         }
       })
-      .catch(err => console.error('Error fetching user', err))
-  }, [])
+      .catch(err => console.error('Error fetching user', err));
+
+  }, []);
+
   return {
     userState,
-    dispatch
+    userDispatch
   }
 }
