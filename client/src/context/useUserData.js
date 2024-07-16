@@ -27,7 +27,7 @@ export default function useUserData() {
 
   useEffect(() => {
     // temporary default user
-    axios.get('/users/1')
+    axios.get(`/users/${1}`)
       .then(res => res.data)
       .then(data => {
         if (data) {
