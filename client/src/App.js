@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react';
 import Nav from './components/Nav/Nav';
 
 function App() {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.get('/users')
-      .then(res => res.data)
-      .then(data => setData(data))
-      .catch(err => console.error('Error fetching users', err));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('/users')
+  //     .then(res => res.data)
+  //     .then(data => setData(data))
+  //     .catch(err => console.error('Error fetching users', err));
+  // }, []);
 
   return (
     <div className="App">

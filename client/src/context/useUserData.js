@@ -1,4 +1,5 @@
-import { useReducer } from "react";
+import axios from "axios";
+import { useEffect, useReducer } from "react";
 
 export const ACTIONS = {
   USER_LOGIN: "login",
@@ -24,6 +25,18 @@ export default function useUserData() {
 
   const [userState, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    // temporary default user
+    axios.get('/users/1')
+      .then(res => res.data)
+      .then(data => {
+        if (data) {
+          dispatch({ type: "login", payload: true });
+          dispatch({ type: "user_info", payload: data });
+        }
+      })
+      .catch(err => console.error('Error fetching user', err))
+  }, [])
   return {
     userState,
     dispatch
