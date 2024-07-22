@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import { UserContext } from "../../App";
+import Login from "./Login";
 
 const Nav = () => {
   const {userState, userDispatch} = useContext(UserContext);
-  console.log("userState", userState);
+
   return(
     <nav className="text-white font-bold flex justify-between">
       <p>X</p>
       <ul className="flex justify-evenly">
         <li className="ml-2 mr-2">
-          <button>
-            {userState.userLoggedIn ? "Logout" : "Login"}
-          </button>
+          <Login userSignedIn={userState.userLoggedIn}/>
         </li>
         <li className="ml-2 mr-2">
             {
