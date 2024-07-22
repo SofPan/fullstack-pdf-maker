@@ -10,7 +10,7 @@ const Nav = () => {
       <p>X</p>
       <ul className="flex justify-evenly">
         <li className="ml-2 mr-2">
-          <Login userSignedIn={userState.userLoggedIn}/>
+          <Login userSignedIn={userState.userLoggedIn} updateUser={userDispatch}/>
         </li>
         <li className="ml-2 mr-2">
             {
