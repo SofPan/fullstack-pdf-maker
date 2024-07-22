@@ -27,15 +27,15 @@ export default function useUserData() {
 
   useEffect(() => {
     // temporary default user
-    axios.get(`/users/${1}`)
-      .then(res => res.data)
-      .then(data => {
-        if (data) {
-          userDispatch({ type: "login", payload: true });
-          userDispatch({ type: "user_info", payload: data });
-        }
-      })
-      .catch(err => console.error('Error fetching user', err));
+    // axios.get(`/users/${1}`)
+    //   .then(res => res.data)
+    //   .then(data => {
+    //     if (data) {
+    //       userDispatch({ type: "login", payload: true });
+    //       userDispatch({ type: "user_info", payload: data });
+    //     }
+    //   })
+    //   .catch(err => console.error('Error fetching user', err));
 
   }, []);
 

@@ -2,6 +2,8 @@ require("dotenv").config({ path: __dirname + "/.env" });
 const express = require('express');
 const cors = require('cors');
 const pool = require(__dirname + "/db/connection.js");
+const cookieParser = require('cookie-parser');
+
 
 const morgan = require('morgan');
 
@@ -12,6 +14,10 @@ const PORT = process.env.PORT || 8080;
 app.use(cors({
   origin: 'http://localhost:3000'
 }));
+
+app.use(cookieParser({
+  secret: process.env.SECRET
+}))
 
 app.use(express.json());
 app.use(morgan('dev'));
