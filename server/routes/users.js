@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.get('/:id', (req, res) => {
   const userId = req.params.id;
+
   getUserById(userId)
     .then(user => {
       res.json(user);
